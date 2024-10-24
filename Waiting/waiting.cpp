@@ -22,7 +22,7 @@ int main() {
         struct tm current_time = *localtime(&timestamp);
         strftime(output, sizeof(output), "%I:%M %p", &current_time);
         if (x >= 3600){
-            cout << "You have waited: " << x/3600 << "hours and" << x/3600 % 60 << " minutes and " << x % 60 << " seconds\n"
+            cout << "You have waited: " << x/3600 << "hours and" << x/3600 % 60 << " minutes and " << x % 60 << " seconds\n";
         }
         else if (x >= 60) {
             cout << "You have waited: " << x / 60 << " minutes and " << x % 60 << " seconds\n";
