@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <string>
+#include <cctype>
 using namespace std;
 
 int main() {
@@ -9,8 +11,12 @@ int main() {
     srand (time(NULL));
     int num = rand() % 3;
     string player;
-    cout << "Choose Rock Paper or Scissors (Needs To Be Capitilized): ";
+    cout << "Choose Rock Paper or Scissors: ";
     cin >> player;
+    player[0] = toupper(player[0]);
+
+    if (player == "Rock" || player == "Paper" ||player == "Scissors"){
+    
     cout << player << "\n" << "VS \n";
     cout << rps[num] << "\n";
     if (player == "Rock" && rps[num] == "Scissors"){
@@ -22,10 +28,16 @@ int main() {
     else if (player == "Scissors" && rps[num] == "Paper"){
         cout << "Player Wins!!";
     }
-    else{
+    else if (player == rps[num]){
+        cout << "Tie!";
+    }else{
         cout << "Bot Wins ;(";
+    }
+    }else{
+        cout << "Invalid answer";
     }
     cout << "\nType something to quit ";
     cin >> x;
+    
     
 }
