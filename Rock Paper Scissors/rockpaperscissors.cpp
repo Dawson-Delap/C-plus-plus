@@ -3,6 +3,7 @@
 #include <string>
 #include <string>
 #include <cctype>
+#include <windows.h> 
 using namespace std;
 
 int main() {
@@ -20,24 +21,24 @@ int main() {
     cout << player << "\n" << "VS \n";
     cout << rps[num] << "\n";
     if (player == "Rock" && rps[num] == "Scissors"){
-        cout << "Player Wins!!";
+        cout << "Player Wins!!\n";
     }
     else if (player == "Paper" && rps[num] == "Rock"){
-        cout << "Player Wins!!";
+        cout << "Player Wins!!\n";
     }
     else if (player == "Scissors" && rps[num] == "Paper"){
-        cout << "Player Wins!!";
+        cout << "Player Wins!!\n";
     }
     else if (player == rps[num]){
         cout << "Tie!";
     }else{
-        cout << "Bot Wins ;(";
+        cout << "Bot Wins ;(\n";
     }
     }else{
-        cout << "Invalid answer";
+        cout << "Invalid answer\n";
     }
-    cout << "\nType something to quit ";
-    cin >> x;
+    
+    system("pause");
     
     
 }

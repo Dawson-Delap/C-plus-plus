@@ -42,7 +42,7 @@ int main() {
         }
         
         cout << "Current time: " << output << "\n";
-        cout << "Shutting Down at " << input << "";
+        cout << "Shutting Down at " << input;
 
 
 
@@ -54,6 +54,4 @@ int main() {
         x++;
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
-
-    return 0;
 }
