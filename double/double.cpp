@@ -8,8 +8,9 @@ using namespace std;
 int main() {
     int x = 2;
     for(int i = 1; i>0; ++i){
-        x += 1234567890;
-        cout << x;
+        x *= 2;
+        cout << x <<"\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
     
 }
