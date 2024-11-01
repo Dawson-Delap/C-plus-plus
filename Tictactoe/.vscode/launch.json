@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ddela092/Documents/GitHub/Cpp/Rock Paper Scissors",
-      "program": "c:/Users/ddela092/Documents/GitHub/Cpp/Rock Paper Scissors/build/Debug/outDebug",
+      "cwd": "c:/Users/ddela092/Documents/GitHub/Cpp/Tictactoe",
+      "program": "c:/Users/ddela092/Documents/GitHub/Cpp/Tictactoe/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

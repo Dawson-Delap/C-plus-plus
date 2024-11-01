@@ -30,7 +30,7 @@ int main() {
         cout << "Player Wins!!\n";
     }
     else if (player == rps[num]){
-        cout << "Tie!";
+        cout << "Tie!\n";
     }else{
         cout << "Bot Wins ;(\n";
     }
@@ -39,6 +39,7 @@ int main() {
     }
     
     system("pause");
+    main();
     
     
 }

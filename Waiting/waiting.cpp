@@ -27,7 +27,6 @@ int main() {
     datetime.tm_sec = sec;
     strftime(input, sizeof(input), "%I:%M:%S %p", &datetime);
 
-
     while (true) {
         time_t current_time = time(NULL);
         struct tm *local_current_time = localtime(&current_time);
@@ -54,4 +53,5 @@ int main() {
         x++;
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+    
 }
