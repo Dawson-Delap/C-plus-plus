@@ -38,6 +38,7 @@ int main() {
     inficheck = 0;
     main();
     }
+    cout << "Space to continue Backspace to stop\n";
     if (cardsindex.size() > 0){
         random_device dev;
         mt19937 rng(dev());
@@ -69,24 +70,22 @@ int main() {
                         main();
                         
                     }else if(GetAsyncKeyState(VK_BACK) & 0x8000){
-                        cout << "back";
-                        // Prepare the key press events for 'C' and 'D'
                         INPUT inputs[4] = {};
                         ZeroMemory(inputs, sizeof(inputs));
-                        // 'C' key down
+                        // key down
                         inputs[0].type = INPUT_KEYBOARD;
-                        inputs[0].ki.wVk = VK_MENU;  // Virtual-Key Code for 'C'
+                        inputs[0].ki.wVk = VK_MENU;  // Virtual-Key Code
 
-                        // 'C' key down
+                        // key down
                         inputs[1].type = INPUT_KEYBOARD;
-                        inputs[1].ki.wVk = VK_F4;  // Virtual-Key Code for 'D'
+                        inputs[1].ki.wVk = VK_F4;  // Virtual-Key Code
 
-                        // 'C' key up
+                        // key up
                         inputs[2].type = INPUT_KEYBOARD;
                         inputs[2].ki.wVk = VK_F4;
                         inputs[2].ki.dwFlags = KEYEVENTF_KEYUP;  // Mark as key release
 
-                        // 'C' key up
+                        // key up
                         inputs[3].type = INPUT_KEYBOARD;
                         inputs[3].ki.wVk = VK_MENU;
                         inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;  // Mark as key release
@@ -97,7 +96,7 @@ int main() {
                             cout << "Error sending input.\n";
                         } else {
                             // Debugging: Confirm that input was sent
-                            cout << "Simulated key press: C then D" << endl;
+                            cout << "Simulated key press" << endl;
                         }
 
                         // Add a small delay between events for better registration
@@ -108,6 +107,47 @@ int main() {
             
             
         }
+    }
+    while (infinite == 0){
+        if (GetAsyncKeyState(VK_SPACE) & 0x8000){
+                            cont = 0;
+                            Sleep(100);
+                            main();
+                            
+            }else if(GetAsyncKeyState(VK_BACK) & 0x8000){
+                INPUT inputs[4] = {};
+                ZeroMemory(inputs, sizeof(inputs));
+                // key down
+                inputs[0].type = INPUT_KEYBOARD;
+                inputs[0].ki.wVk = VK_MENU;  // Virtual-Key Code
+
+                // key down
+                inputs[1].type = INPUT_KEYBOARD;
+                inputs[1].ki.wVk = VK_F4;  // Virtual-Key Code
+
+                // key up
+                inputs[2].type = INPUT_KEYBOARD;
+                inputs[2].ki.wVk = VK_F4;
+                inputs[2].ki.dwFlags = KEYEVENTF_KEYUP;  // Mark as key release
+
+                // key up
+                inputs[3].type = INPUT_KEYBOARD;
+                inputs[3].ki.wVk = VK_MENU;
+                inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;  // Mark as key release
+
+                // Send the input events
+                UINT uSent = SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
+                if (uSent != ARRAYSIZE(inputs)) {
+                    cout << "Error sending input.\n";
+                } else {
+                    // Debugging: Confirm that input was sent
+                    cout << "Simulated key press" << endl;
+                }
+
+                // Add a small delay between events for better registration
+                Sleep(100);
+                cont = 0;
+            }
     }
     return 0;
 }

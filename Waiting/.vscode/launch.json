@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/dawso/Documents/GitHub/Cpp/Waiting",
-      "program": "c:/Users/dawso/Documents/GitHub/Cpp/Waiting/build/Debug/outDebug",
+      "cwd": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/Waiting",
+      "program": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/Waiting/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

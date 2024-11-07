@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ddela092/Documents/GitHub/Cpp/War",
-      "program": "c:/Users/ddela092/Documents/GitHub/Cpp/War/build/Debug/outDebug",
+      "cwd": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/War",
+      "program": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/War/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

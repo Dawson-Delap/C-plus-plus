@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ddela092/Documents/GitHub/Cpp/configure autoclick",
-      "program": "c:/Users/ddela092/Documents/GitHub/Cpp/configure autoclick/build/Debug/outDebug",
+      "cwd": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/configure autoclick",
+      "program": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/configure autoclick/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
