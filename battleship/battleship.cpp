@@ -419,11 +419,15 @@ int main(){
         board[spots[horz2_2]] = '>';
         
         cout << board;
-        cout << "3";
+        cout << '5';
         Sleep(1000);
-        cout << "2";
+        cout << '4';
         Sleep(1000);
-        cout << "1";
+        cout << '3';
+        Sleep(1000);
+        cout << '2';
+        Sleep(1000);
+        cout << '1';
         Sleep(1000);
         while (true){
             cout << "YOU WIN!!";
