@@ -283,64 +283,6 @@ int main(){
         horz2_2_left = horz2_2_leftabc + horz2_2_num;
         horz2_2 = horz2_2_abc + horz2_2_num;
     }
-
-    //show spots of ships
-    cout << "vert31top:    " << vert3_1_top << "\n";
-    cout << "vert3_1:      " << vert3_1 << "\n";
-    cout << "vert31bottom: " << vert3_1_bottom << "\n";
-
-    cout << "vert32top:    " << vert3_2_top << "\n";
-    cout << "vert3_2:      " << vert3_2 << "\n";
-    cout << "vert32bottom: " << vert3_2_bottom << "\n";
-
-    board[spots[vert3_1_top]] = 'M';
-    board[spots[vert3_1]] = 'N';
-    board[spots[vert3_1_bottom]] = 'W';
-
-    board[spots[vert3_2_top]] = 'M';
-    board[spots[vert3_2]] = 'N';
-    board[spots[vert3_2_bottom]] = 'W';
-
-    cout << "vert21top: " << vert2_1_top << "\n";
-    cout << "vert2_1:   " << vert2_1 << "\n";
-
-    cout << "vert22top: " << vert2_2_top << "\n";
-    cout << "vert2_2:   " << vert2_2 << "\n";
-
-    board[spots[vert2_1_top]] = 'M';
-    board[spots[vert2_1]] = 'W';
-
-    board[spots[vert2_2_top]] = 'M';
-    board[spots[vert2_2]] = 'W';
-
-    cout << "horz31left:    " << horz3_1_left << "\n";
-    cout << "horz3_1:      " << horz3_1 << "\n";
-    cout << "horz31right: " << horz3_1_right << "\n";
-
-    cout << "horz32left:    " << horz3_2_left << "\n";
-    cout << "horz3_2:      " << horz3_2 << "\n";
-    cout << "horz32right: " << horz3_2_right << "\n";
-
-    board[spots[horz3_1_left]] = '<';
-    board[spots[horz3_1]] = '#';
-    board[spots[horz3_1_right]] = '>';
-
-    board[spots[horz3_2_left]] = '<';
-    board[spots[horz3_2]] = '#';
-    board[spots[horz3_2_right]] = '>';
-
-    cout << "horz21left: " << horz2_1_left << "\n";
-    cout << "horz2_1:   " << horz2_1 << "\n";
-
-    cout << "horz22left: " << horz2_2_left << "\n";
-    cout << "horz2_2:   " << horz2_2 << "\n";
-
-    board[spots[horz2_1_left]] = '<';
-    board[spots[horz2_1]] = '>';
-
-    board[spots[horz2_2_left]] = '<';
-    board[spots[horz2_2]] = '>';
-    
     cout << board;
 
     while(true){
@@ -393,6 +335,42 @@ int main(){
     && board[spots[horz2_2_left]] == 'X'
     && board[spots[horz2_2]] == 'X'
     ){
+
+        board[spots[vert3_1_top]] = 'M';
+        board[spots[vert3_1]] = 'N';
+        board[spots[vert3_1_bottom]] = 'W';
+
+        board[spots[vert3_2_top]] = 'M';
+        board[spots[vert3_2]] = 'N';
+        board[spots[vert3_2_bottom]] = 'W';
+
+        board[spots[vert2_1_top]] = 'M';
+        board[spots[vert2_1]] = 'W';
+
+        board[spots[vert2_2_top]] = 'M';
+        board[spots[vert2_2]] = 'W';
+
+        board[spots[horz3_1_left]] = '<';
+        board[spots[horz3_1]] = '#';
+        board[spots[horz3_1_right]] = '>';
+
+        board[spots[horz3_2_left]] = '<';
+        board[spots[horz3_2]] = '#';
+        board[spots[horz3_2_right]] = '>';
+
+        board[spots[horz2_1_left]] = '<';
+        board[spots[horz2_1]] = '>';
+
+        board[spots[horz2_2_left]] = '<';
+        board[spots[horz2_2]] = '>';
+        
+        cout << board;
+        cout << "3";
+        Sleep(1000);
+        cout << "2";
+        Sleep(1000);
+        cout << "1";
+        Sleep(1000);
         while (true){
             cout << "YOU WIN!!";
         }
