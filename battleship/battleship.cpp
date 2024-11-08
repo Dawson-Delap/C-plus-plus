@@ -7,8 +7,6 @@
 #include <windows.h>
 #include <algorithm>
 using namespace std;
-
-int main(){
     string board =  "  |A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|\n"
                     " 1| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
                     " 2| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
@@ -43,13 +41,363 @@ int main(){
     {"A14", 787}, {"B14", 789}, {"C14", 791}, {"D14", 793}, {"E14", 795}, {"F14", 797}, {"G14", 799}, {"H14", 801}, {"I14", 803}, {"J14", 805}, {"K14", 807}, {"L14", 809}, {"M14", 811}, {"N14", 813}, {"O14", 815}, {"P14", 817}, {"Q14", 819}, {"R14", 821}, {"S14", 823}, {"T14", 825}, {"U14", 827}, {"V14", 829}, {"W14", 831}, {"X14", 833}, {"Y14", 835}, {"Z14", 837},
     {"A15", 843}, {"B15", 845}, {"C15", 847}, {"D15", 849}, {"E15", 851}, {"F15", 853}, {"G15", 855}, {"H15", 857}, {"I15", 859}, {"J15", 861}, {"K15", 863}, {"L15", 865}, {"M15", 867}, {"N15", 869}, {"O15", 871}, {"P15", 873}, {"Q15", 875}, {"R15", 877}, {"S15", 879}, {"T15", 881}, {"U15", 883}, {"V15", 885}, {"W15", 887}, {"X15", 889}, {"Y15", 891}, {"Z15", 893}
     };
+    string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    vector<string> num = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"};
+
+int main(){
     string play1;
     cout << board;
+
+    // 2 vert 3 ship (done)
+    // 2 horz 3 ship
+    // 4 1 ship
+    // 2 vert 2 ship
+    // 2 horz 2 ship
+
+
+    // Randoms abc vert3
+    random_device vert3devabc;
+    mt19937 vert3rngabc(vert3devabc());
+    uniform_int_distribution<mt19937::result_type> vert3abc(0, abc.size() - 1);
+    // randoms num vert3
+    random_device vert3devnum;
+    mt19937 vert3rngnum(vert3devnum());
+    uniform_int_distribution<mt19937::result_type> vert3num(1, num.size() - 2);
+
+    //vertical 3 ships place
+    char vert3_1_abc = abc[vert3abc(vert3rngabc)];
+
+    int vert3_1_numindex = vert3num(vert3rngnum);
+
+    string vert3_1_topnum = num[vert3_1_numindex - 1];
+    string vert3_1_num = num[vert3_1_numindex];
+    string vert3_1_bottomnum = num[vert3_1_numindex + 1];
+
+    string vert3_1_top = vert3_1_abc + vert3_1_topnum;
+    string vert3_1 = vert3_1_abc + vert3_1_num;
+    string vert3_1_bottom = vert3_1_abc + vert3_1_bottomnum;
+
+    char vert3_2_abc = abc[vert3abc(vert3rngabc)];
+
+    int vert3_2_numindex = vert3num(vert3rngnum);
+
+    string vert3_2_topnum = num[vert3_2_numindex - 1];
+    string vert3_2_num = num[vert3_2_numindex];
+    string vert3_2_bottomnum = num[vert3_2_numindex + 1];
+
+    string vert3_2_top = vert3_2_abc + vert3_2_topnum;
+    string vert3_2 = vert3_2_abc + vert3_2_num;
+    string vert3_2_bottom = vert3_2_abc + vert3_2_bottomnum;
+
+    //check if ships are same if are then change 3_2
+        if (
+    vert3_2 == vert3_1_top
+    || vert3_2 == vert3_1
+    || vert3_2 == vert3_1_bottom
+    || vert3_2 == vert3_2_top
+    || vert3_2 == vert3_2
+    || vert3_2 == vert3_2_bottom){
+        vert3_2_numindex = vert3num(vert3rngnum);
+
+        vert3_2_topnum = num[vert3_2_numindex - 1];
+        vert3_2_num = num[vert3_2_numindex];
+        vert3_2_bottomnum = num[vert3_2_numindex + 1];
+
+        vert3_2_top = vert3_2_abc + vert3_2_topnum;
+        vert3_2 = vert3_2_abc + vert3_2_num;
+        vert3_2_bottom = vert3_2_abc + vert3_2_bottomnum;
+    }
+
+    // Randoms abc vert3
+    random_device vert2devabc;
+    mt19937 vert2rngabc(vert2devabc());
+    uniform_int_distribution<mt19937::result_type> vert2abc(0, abc.size() - 1);
+    // randoms num vert2
+    random_device vert2devnum;
+    mt19937 vert2rngnum(vert2devnum());
+    uniform_int_distribution<mt19937::result_type> vert2num(1, num.size() - 1);
+
+    //vertical 2 ships place
+    char vert2_1_abc = abc[vert2abc(vert2rngabc)];
+
+    int vert2_1_numindex = vert2num(vert2rngnum);
+
+    string vert2_1_topnum = num[vert2_1_numindex - 1];
+    string vert2_1_num = num[vert2_1_numindex];
+
+    string vert2_1_top = vert2_1_abc + vert2_1_topnum;
+    string vert2_1 = vert2_1_abc + vert2_1_num;
+
+    char vert2_2_abc = abc[vert2abc(vert2rngabc)];
+
+    int vert2_2_numindex = vert2num(vert2rngnum);
+
+    string vert2_2_topnum = num[vert2_2_numindex - 1];
+    string vert2_2_num = num[vert2_2_numindex];
+
+    string vert2_2_top = vert2_2_abc + vert2_2_topnum;
+    string vert2_2 = vert2_2_abc + vert2_2_num;
+
+    //check if ships are same if are then change 2_2
+    if (
+    vert2_2 == vert3_1_top
+    || vert2_2 == vert3_1
+    || vert2_2 == vert3_1_bottom
+    || vert2_2 == vert3_2_top
+    || vert2_2 == vert3_2
+    || vert2_2 == vert3_2_bottom
+    || vert2_2 == vert2_1_top
+    || vert2_2 == vert2_1
+    || vert2_2 == vert2_2_top
+    || vert2_2 == vert2_2){
+        vert2_2_numindex = vert2num(vert2rngnum);
+
+        vert2_2_topnum = num[vert2_2_numindex - 1];
+        vert2_2_num = num[vert2_2_numindex];
+
+        vert2_2_top = vert2_2_abc + vert2_2_topnum;
+        vert2_2 = vert2_2_abc + vert2_2_num;
+    }
+    //horiontal 3 ships
+    random_device horz3devabc;
+    mt19937 horz3rngabc(horz3devabc());
+    uniform_int_distribution<mt19937::result_type> horz3abc(1, abc.size() - 2);
+    // randoms num horz3
+    random_device horz3devnum;
+    mt19937 horz3rngnum(horz3devnum());
+    uniform_int_distribution<mt19937::result_type> horz3num(0, num.size() - 1);
+
+    //horzical 3 ships place
+    string horz3_1_num = num[horz3num(horz3rngnum)];
+
+    int horz3_1_abcindex = horz3abc(horz3rngabc);
+
+    char horz3_1_leftabc = abc[horz3_1_abcindex - 1];
+    char horz3_1_abc = abc[horz3_1_abcindex];
+    char horz3_1_rightabc = abc[horz3_1_abcindex + 1];
+
+    string horz3_1_left = horz3_1_leftabc + horz3_1_num;
+    string horz3_1 = horz3_1_abc + horz3_1_num;
+    string horz3_1_right = horz3_1_rightabc + horz3_1_num;
+
+    //horz3_2
+    string horz3_2_num = num[horz3num(horz3rngnum)];
+
+    int horz3_2_abcindex = horz3abc(horz3rngabc);
+
+    char horz3_2_leftabc = abc[horz3_2_abcindex - 1];
+    char horz3_2_abc = abc[horz3_2_abcindex];
+    char horz3_2_rightabc = abc[horz3_2_abcindex + 1];
+
+    string horz3_2_left = horz3_2_leftabc + horz3_2_num;
+    string horz3_2 = horz3_2_abc + horz3_2_num;
+    string horz3_2_right = horz3_2_rightabc + horz3_2_num;
+
+    //check if ships are same if are then change 3_2
+    if (
+    horz3_2 == vert3_1_top
+    || horz3_2 == vert3_1
+    || horz3_2 == vert3_1_bottom
+    || horz3_2 == vert3_2_top
+    || horz3_2 == vert3_2
+    || horz3_2 == vert3_2_bottom
+    || horz3_2 == vert2_1_top
+    || horz3_2 == vert2_1
+    || horz3_2 == vert2_2_top
+    || horz3_2 == vert2_2
+    || horz3_2 == horz3_1_left
+    || horz3_2 == horz3_1
+    || horz3_2 == horz3_1_right){
+        horz3_2_num = num[horz3num(horz3rngnum)];
+
+        horz3_2_abcindex = horz3abc(horz3rngabc);
+
+        horz3_2_leftabc = abc[horz3_2_abcindex - 1];
+        horz3_2_abc = abc[horz3_2_abcindex];
+        horz3_2_rightabc = abc[horz3_2_abcindex + 1];
+
+        horz3_2_left = horz3_2_leftabc + horz3_2_num;
+        horz3_2 = horz3_2_abc + horz3_2_num;
+        horz3_2_right = horz3_2_rightabc + horz3_2_num;
+    }
+
+    //horiontal 3 ships
+    random_device horz2devabc;
+    mt19937 horz2rngabc(horz2devabc());
+    uniform_int_distribution<mt19937::result_type> horz2abc(1, abc.size() - 1);
+    // randoms num horz2
+    random_device horz2devnum;
+    mt19937 horz2rngnum(horz2devnum());
+    uniform_int_distribution<mt19937::result_type> horz2num(0, num.size() - 1);
+
+    //horzical 2 ships place
+    string horz2_1_num = num[horz2num(horz2rngnum)];
+
+    int horz2_1_abcindex = horz2abc(horz2rngabc);
+
+    char horz2_1_leftabc = abc[horz2_1_abcindex - 1];
+    char horz2_1_abc = abc[horz2_1_abcindex];
+
+
+    string horz2_1_left = horz2_1_leftabc + horz2_1_num;
+    string horz2_1 = horz2_1_abc + horz2_1_num;
+
+    //horz2_2
+    string horz2_2_num = num[horz2num(horz2rngnum)];
+
+    int horz2_2_abcindex = horz2abc(horz2rngabc);
+
+    char horz2_2_leftabc = abc[horz2_2_abcindex - 1];
+    char horz2_2_abc = abc[horz2_2_abcindex];
+
+    string horz2_2_left = horz2_2_leftabc + horz2_2_num;
+    string horz2_2 = horz2_2_abc + horz2_2_num;
+
+    //check if ships are same if are then change 2_2
+    if (
+    horz2_2 == vert3_1_top
+    || horz2_2 == vert3_1
+    || horz2_2 == vert3_1_bottom
+    || horz2_2 == vert3_2_top
+    || horz2_2 == vert3_2
+    || horz2_2 == vert3_2_bottom
+    || horz2_2 == vert2_1_top
+    || horz2_2 == vert2_1
+    || horz2_2 == vert2_2_top
+    || horz2_2 == vert2_2
+    || horz2_2 == horz3_1_left
+    || horz2_2 == horz3_1
+    || horz2_2 == horz3_1_right
+    || horz2_2 == horz3_2_left
+    || horz2_2 == horz3_2
+    || horz2_2 == horz3_2_right
+    || horz2_2 == horz2_1_left
+    || horz2_2 == horz2_1){
+        horz2_2_num = num[horz2num(horz2rngnum)];
+
+        horz2_2_abcindex = horz2abc(horz2rngabc);
+
+        horz2_2_leftabc = abc[horz2_2_abcindex - 1];
+        horz2_2_abc = abc[horz2_2_abcindex];
+
+        horz2_2_left = horz2_2_leftabc + horz2_2_num;
+        horz2_2 = horz2_2_abc + horz2_2_num;
+    }
+
+    //show spots of ships
+    cout << "vert31top:    " << vert3_1_top << "\n";
+    cout << "vert3_1:      " << vert3_1 << "\n";
+    cout << "vert31bottom: " << vert3_1_bottom << "\n";
+
+    cout << "vert32top:    " << vert3_2_top << "\n";
+    cout << "vert3_2:      " << vert3_2 << "\n";
+    cout << "vert32bottom: " << vert3_2_bottom << "\n";
+
+    board[spots[vert3_1_top]] = 'M';
+    board[spots[vert3_1]] = 'N';
+    board[spots[vert3_1_bottom]] = 'W';
+
+    board[spots[vert3_2_top]] = 'M';
+    board[spots[vert3_2]] = 'N';
+    board[spots[vert3_2_bottom]] = 'W';
+
+    cout << "vert21top: " << vert2_1_top << "\n";
+    cout << "vert2_1:   " << vert2_1 << "\n";
+
+    cout << "vert22top: " << vert2_2_top << "\n";
+    cout << "vert2_2:   " << vert2_2 << "\n";
+
+    board[spots[vert2_1_top]] = 'M';
+    board[spots[vert2_1]] = 'W';
+
+    board[spots[vert2_2_top]] = 'M';
+    board[spots[vert2_2]] = 'W';
+
+    cout << "horz31left:    " << horz3_1_left << "\n";
+    cout << "horz3_1:      " << horz3_1 << "\n";
+    cout << "horz31right: " << horz3_1_right << "\n";
+
+    cout << "horz32left:    " << horz3_2_left << "\n";
+    cout << "horz3_2:      " << horz3_2 << "\n";
+    cout << "horz32right: " << horz3_2_right << "\n";
+
+    board[spots[horz3_1_left]] = '<';
+    board[spots[horz3_1]] = '#';
+    board[spots[horz3_1_right]] = '>';
+
+    board[spots[horz3_2_left]] = '<';
+    board[spots[horz3_2]] = '#';
+    board[spots[horz3_2_right]] = '>';
+
+    cout << "horz21left: " << horz2_1_left << "\n";
+    cout << "horz2_1:   " << horz2_1 << "\n";
+
+    cout << "horz22left: " << horz2_2_left << "\n";
+    cout << "horz2_2:   " << horz2_2 << "\n";
+
+    board[spots[horz2_1_left]] = '<';
+    board[spots[horz2_1]] = '>';
+
+    board[spots[horz2_2_left]] = '<';
+    board[spots[horz2_2]] = '>';
+    
+    cout << board;
+
     while(true){
         cout <<"what spot";
         cin >> play1;
+    if (
+    play1 == vert3_1_top
+    || play1 == vert3_1
+    || play1 == vert3_1_bottom
+    || play1 == vert3_2_top
+    || play1 == vert3_2
+    || play1 == vert3_2_bottom
+    || play1 == vert2_1_top
+    || play1 == vert2_1
+    || play1 == vert2_2_top
+    || play1 == vert2_2
+    || play1 == horz3_1_left
+    || play1 == horz3_1
+    || play1 == horz3_1_right
+    || play1 == horz3_2_left
+    || play1 == horz3_2
+    || play1 == horz3_2_right
+    || play1 == horz2_1_left
+    || play1 == horz2_1
+    || play1 == horz2_2_left
+    || play1 == horz2_2){
         board[spots[play1]] = 'X';
+    }else{
+        board[spots[play1]] = 'O';
+    }
+    if (
+    board[spots[vert3_1_top]] == 'X'
+    && board[spots[vert3_1]] == 'X'
+    && board[spots[vert3_1_bottom]] == 'X'
+    && board[spots[vert3_2_top]] == 'X'
+    && board[spots[vert3_2]] == 'X'
+    && board[spots[vert3_2_bottom]] == 'X'
+    && board[spots[vert2_1_top]] == 'X'
+    && board[spots[vert2_1]] == 'X'
+    && board[spots[vert2_2_top]] == 'X'
+    && board[spots[vert2_2]] == 'X'
+    && board[spots[horz3_1_left]] == 'X'
+    && board[spots[horz3_1]] == 'X'
+    && board[spots[horz3_1_right]] == 'X'
+    && board[spots[horz3_2_left]] == 'X'
+    && board[spots[horz3_2]] == 'X'
+    && board[spots[horz3_2_right]]== 'X'
+    && board[spots[horz2_1_left]] == 'X'
+    && board[spots[horz2_1]] == 'X'
+    && board[spots[horz2_2_left]] == 'X'
+    && board[spots[horz2_2]] == 'X'
+    ){
+        while (true){
+            cout << "YOU WIN!!";
+        }
+    }
         cout << board;
     }
-    system("pause");
+    return 0;
 }
