@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <algorithm>
 using namespace std;
+//board
     string board =  "  |A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|\n"
                     " 1| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
                     " 2| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
@@ -24,6 +25,7 @@ using namespace std;
                     "14| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
                     "15| | | | | | | | | | | | | | | | | | | | | | | | | | |\n"
                     "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    // index map of spots
     map<string, int> spots = {
     {"A1", 59}, {"B1", 61}, {"C1", 63}, {"D1", 65}, {"E1", 67}, {"F1", 69}, {"G1", 71}, {"H1", 73}, {"I1", 75}, {"J1", 77}, {"K1", 79}, {"L1", 81}, {"M1", 83}, {"N1", 85}, {"O1", 87}, {"P1", 89}, {"Q1", 91}, {"R1", 93}, {"S1", 95}, {"T1", 97}, {"U1", 99}, {"V1", 101}, {"W1", 103}, {"X1", 105}, {"Y1", 107}, {"Z1", 109},
     {"A2", 115}, {"B2", 117}, {"C2", 119}, {"D2", 121}, {"E2", 123}, {"F2", 125}, {"G2", 127}, {"H2", 129}, {"I2", 131}, {"J2", 133}, {"K2", 135}, {"L2", 137}, {"M2", 139}, {"N2", 141}, {"O2", 143}, {"P2", 145}, {"Q2", 147}, {"R2", 149}, {"S2", 151}, {"T2", 153}, {"U2", 155}, {"V2", 157}, {"W2", 159}, {"X2", 161}, {"Y2", 163}, {"Z2", 165},
@@ -41,19 +43,13 @@ using namespace std;
     {"A14", 787}, {"B14", 789}, {"C14", 791}, {"D14", 793}, {"E14", 795}, {"F14", 797}, {"G14", 799}, {"H14", 801}, {"I14", 803}, {"J14", 805}, {"K14", 807}, {"L14", 809}, {"M14", 811}, {"N14", 813}, {"O14", 815}, {"P14", 817}, {"Q14", 819}, {"R14", 821}, {"S14", 823}, {"T14", 825}, {"U14", 827}, {"V14", 829}, {"W14", 831}, {"X14", 833}, {"Y14", 835}, {"Z14", 837},
     {"A15", 843}, {"B15", 845}, {"C15", 847}, {"D15", 849}, {"E15", 851}, {"F15", 853}, {"G15", 855}, {"H15", 857}, {"I15", 859}, {"J15", 861}, {"K15", 863}, {"L15", 865}, {"M15", 867}, {"N15", 869}, {"O15", 871}, {"P15", 873}, {"Q15", 875}, {"R15", 877}, {"S15", 879}, {"T15", 881}, {"U15", 883}, {"V15", 885}, {"W15", 887}, {"X15", 889}, {"Y15", 891}, {"Z15", 893}
     };
+    //strings for random to index
     string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     vector<string> num = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"};
 
 int main(){
     string play1;
     cout << board;
-
-    // 2 vert 3 ship (done)
-    // 2 horz 3 ship
-    // 4 1 ship
-    // 2 vert 2 ship
-    // 2 horz 2 ship
-
 
     // Randoms abc vert3
     random_device vert3devabc;
@@ -108,7 +104,7 @@ int main(){
         vert3_2_bottom = vert3_2_abc + vert3_2_bottomnum;
     }
 
-    // Randoms abc vert3
+    // Randoms abc vert2
     random_device vert2devabc;
     mt19937 vert2rngabc(vert2devabc());
     uniform_int_distribution<mt19937::result_type> vert2abc(0, abc.size() - 1);
@@ -221,7 +217,7 @@ int main(){
         horz3_2_right = horz3_2_rightabc + horz3_2_num;
     }
 
-    //horiontal 3 ships
+    //horiontal 2 ships
     random_device horz2devabc;
     mt19937 horz2rngabc(horz2devabc());
     uniform_int_distribution<mt19937::result_type> horz2abc(1, abc.size() - 1);
@@ -286,8 +282,9 @@ int main(){
     cout << board;
 
     while(true){
-        cout <<"what spot";
+        cout <<"what spot: ";
         cin >> play1;
+    //check for hit
     if (
     play1 == vert3_1_top
     || play1 == vert3_1
@@ -313,6 +310,7 @@ int main(){
     }else{
         board[spots[play1]] = 'O';
     }
+    //check for win
     if (
     board[spots[vert3_1_top]] == 'X'
     && board[spots[vert3_1]] == 'X'
@@ -335,7 +333,7 @@ int main(){
     && board[spots[horz2_2_left]] == 'X'
     && board[spots[horz2_2]] == 'X'
     ){
-
+        //show ships at end
         board[spots[vert3_1_top]] = 'M';
         board[spots[vert3_1]] = 'N';
         board[spots[vert3_1_bottom]] = 'W';
