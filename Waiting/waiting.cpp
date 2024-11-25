@@ -3,18 +3,22 @@
 #include <chrono>
 #include <ctime>
 #include <cstring>
+#include <cmath>
 
 using namespace std;
 
 int main() {
+    struct tm date;
+    time_t now;
+    time_t before;
+    int hour;
+    int min;
+    int sec;
     int x = 0;
     char output[50];
     char input[50];
     char gittime[50];
     struct tm datetime;
-    int hour = 0;
-    int min = 0;
-    int sec = 0;
 
     cout << "Time to shutdown in military time \nHour: ";
     cin >> hour;
@@ -22,7 +26,7 @@ int main() {
     cin >> min;
     cout << "Second: ";
     cin >> sec;
-    
+
     datetime.tm_hour = hour;
     datetime.tm_min = min;
     datetime.tm_sec = sec;
@@ -32,7 +36,6 @@ int main() {
     datetime.tm_min = min-1;
     datetime.tm_sec = sec;
     strftime(gittime, sizeof(gittime), "%I:%M:%S %p", &datetime);
-
     while (true) {
         time_t current_time = time(NULL);
         struct tm *local_current_time = localtime(&current_time);
@@ -47,7 +50,20 @@ int main() {
         }
         
         cout << "Current time: " << output << "\n";
-        cout << "Shutting Down at " << input;
+        cout << "Shutting Down at " << input << "\n";
+        // Create a timestamp for right now
+        time(&now);
+
+        // Create a timestamp
+        date = *localtime(&now);
+        date.tm_hour = hour;
+        date.tm_min = min;
+        date.tm_sec = sec;
+        before = mktime(&date);
+
+
+        cout << floor((difftime(now, before)*-1)/60) << " Minutes Left";
+
         if (strcmp(gittime, output) == 0) {
             system("GitHub Desktop.lnk");
         }
@@ -57,7 +73,10 @@ int main() {
         }
 
         x++;
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+
+        
+            
+        this_thread::sleep_for(chrono::seconds(1));
     }
     
 }
