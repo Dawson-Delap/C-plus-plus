@@ -42,15 +42,43 @@ int main() {
         strftime(output, sizeof(output), "%I:%M:%S %p", local_current_time);
 
         if (x >= 3600) {
-            cout << "\nWaited: " << x / 3600 << " hours and " << x / 60 % 60 << " minutes and " << x % 60 << " seconds\n";
+            if (x/3600 <= 9 && x/60%60 <= 9 && x%60 <= 9){ //hours, min, sec
+                cout << "\nWaited:          0" << x / 3600 << ":0" << x / 60 % 60 << ":0" << x % 60 << "\n";
+            }else if (x/3600 <= 9 && x/60%60 <= 9){ //hours, min
+                cout << "\nWaited:          0" << x / 3600 << ":0" << x / 60 % 60 << ":" << x % 60 << "\n";
+            }else if (x/3600 <= 9 && x%60 <= 9){ // hours, sec
+                cout << "\nWaited:          0" << x / 3600 << ":" << x / 60 % 60 << ":0" << x % 60 << "\n";
+            }else if (x/60%60 <= 9 && x%60 <= 9){ // min, sec 
+                cout << "\nWaited:          " << x / 3600 << ":0" << x / 60 % 60 << ":0" << x % 60 << "\n";
+            }else if (x/3600 <=9){ // hours 
+                cout << "\nWaited:          0" << x / 3600 << ":" << x / 60 % 60 << ":" << x % 60 << "\n";
+            }else if (x/60%60 <= 9){ // min
+                cout << "\nWaited:          " << x / 3600 << ":0" << x / 60 % 60 << ":" << x % 60 << "\n";
+            }else if (x%60 <= 9){ // min, sec 
+                cout << "\nWaited:          " << x / 3600 << ":" << x / 60 % 60 << ":0" << x % 60 << "\n";
+            }else{
+                cout << "\nWaited:          " << x / 3600 << ":" << x / 60 % 60 << ":" << x % 60 << "\n";
+            }
         } else if (x >= 60) {
-            cout << "\nWaited: " << x / 60 << " minutes and " << x % 60 << " seconds\n";
+            if (x/60 <= 9 && x%60 <=9){
+                cout << "\nWaited:          00:0" << x / 60 << ":0" << x % 60 << "\n";
+            }else if (x/60 <= 9){
+                cout << "\nWaited:          00:0" << x / 60 << ":" << x % 60 << "\n";
+            }else if (x%60 <= 9){
+                cout << "\nWaited:          00:" << x / 60 << ":0" << x % 60 << "\n";
+            }else{
+                cout << "\nWaited:          00:" << x / 60 << ":" << x % 60 << "\n";
+            }
         } else {
-            cout << "\nWaited: " << x << " seconds\n";
+            if (x > 9){
+                cout << "\nWaited:          00:00:" << x << "\n";
+            }else{
+                cout << "\nWaited:          00:00:0" << x << "\n";
+            }
         }
         
-        cout << "Current time: " << output << "\n";
-        cout << "Shutting Down at " << input << "\n";
+        cout << "Current time:    " << output << "\n";
+        cout << "Shutting Down:   " << input << "\n";
         // Create a timestamp for right now
         time(&now);
 
@@ -61,8 +89,26 @@ int main() {
         date.tm_sec = sec;
         before = mktime(&date);
 
+        double secs = (difftime(now, before)*-1);
 
-        cout << floor((difftime(now, before)*-1)/60) << " Minutes Left";
+            if (floor(secs / 3600) <= 9 && floor(fmod(secs/60,60)) <= 9 && fmod(secs,60) <= 9){ //hours, min, sec
+                cout << "Time Left:       0" << floor(secs / 3600) << ":0" << floor(fmod(secs/60,60)) << ":0" << fmod(secs,60);
+            }else if (floor(secs / 3600) <= 9 && floor(fmod(secs/60,60)) <= 9){ //hours, min
+                cout << "Time Left:       0" << floor(secs / 3600) << ":0" << floor(fmod(secs/60,60)) << ":" << fmod(secs,60);
+            }else if (floor(secs / 3600) <= 9 && fmod(secs,60) <= 9){ // hours, sec
+                cout << "Time Left:       0" << floor(secs / 3600) << ":" << floor(fmod(secs/60,60)) << ":0" << fmod(secs,60);
+            }else if (floor(fmod(secs/60,60)) <= 9 && fmod(secs,60) <= 9){ // min, sec 
+                cout << "Time Left:       " << floor(secs / 3600) << ":0" << floor(fmod(secs/60,60)) << ":0" << fmod(secs,60);
+            }else if (floor(secs / 3600) <=9){ // hours 
+                cout << "Time Left:       0" << floor(secs / 3600) << ":" << floor(fmod(secs/60,60)) << ":" << fmod(secs,60);
+            }else if (floor(fmod(secs/60,60)) <= 9){ // min
+                cout << "Time Left:       " << floor(secs / 3600) << ":0" << floor(fmod(secs/60,60)) << ":" << fmod(secs,60);
+            }else if (fmod(secs,60) <= 9){ // min, sec 
+                cout << "Time Left:       " << floor(secs / 3600) << ":" << floor(fmod(secs/60,60)) << ":0" << fmod(secs,60);
+            }else{
+                cout << "Time Left:       " << floor(secs / 3600) << ":" << floor(fmod(secs/60,60)) << ":" << fmod(secs,60);
+            }
+        
 
         if (strcmp(gittime, output) == 0) {
             system("GitHub Desktop.lnk");
