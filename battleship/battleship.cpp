@@ -279,7 +279,7 @@ int main(){
         horz2_2_left = horz2_2_leftabc + horz2_2_num;
         horz2_2 = horz2_2_abc + horz2_2_num;
     }
-    /*//show spots of ships for cheat
+    //show spots of ships for cheat
     cout << "vert31top:    " << vert3_1_top << "\n";
     cout << "vert3_1:      " << vert3_1 << "\n";
     cout << "vert31bottom: " << vert3_1_bottom << "\n";
@@ -334,7 +334,7 @@ int main(){
     board[spots[horz2_1]] = '>';
 
     board[spots[horz2_2_left]] = '<';
-    board[spots[horz2_2]] = '>';*/
+    board[spots[horz2_2]] = '>';
     cout << board;
 
     while(true){

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/battleship",
-      "program": "c:/Users/ddela092/Documents/GitHub/C-plus-plus/battleship/build/Debug/outDebug",
+      "cwd": "c:/Users/dawso/Documents/GitHub/Cpp/battleship",
+      "program": "c:/Users/dawso/Documents/GitHub/Cpp/battleship/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

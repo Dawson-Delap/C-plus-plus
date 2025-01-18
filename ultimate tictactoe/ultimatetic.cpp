@@ -4,7 +4,6 @@
 #include <cctype>
 #include <map>
 #include <random>
-#include <windows.h>
 #include <algorithm>
 using namespace std;
 string help  =  " A B C  D E F  G H I\n";
